@@ -13,7 +13,7 @@ Entramos en nuestra máquina virtual. Si ejecutamos el comando:
 lsblk
 
 veremos algo de este estilo:
-
+```
 NAME                    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sr0                      11:0    1   761M  0 rom  
 vda                     254:0    0   100G  0 disk 
@@ -26,7 +26,7 @@ vdb                     254:16   0   100G  0 disk
 └─vdb1                  254:17   0   100G  0 part 
   └─dappnode--vg-root   253:0    0 179,8G  0 lvm  /
 vdc                     254:32   0   100G  0 disk 
-
+```
 En este caso el nuevo dispositivo de bloques aparece nombrado como "vdc" y tiene un tamaño de 100G
 
 Para poder añadirlo a nuestro sistema de ficheros primero tendremos que crear una partición y darle formato. En nuestro caso el formato elegido es ext4
