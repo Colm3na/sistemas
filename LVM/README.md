@@ -40,6 +40,7 @@ Pulsamos "w" para guardar los cambios y salir.
 
 Si volvemos a mostrar los dispositivos de bloque veremos algo así:
 
+```
 NAME                    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sr0                      11:0    1   761M  0 rom
 vda                     254:0    0   100G  0 disk
@@ -53,11 +54,13 @@ vdb                     254:16   0   100G  0 disk
   └─dappnode--vg-root   253:0    0 179,8G  0 lvm  /
 vdc                     254:32   0   100G  0 disk
 └─vdc1                  254:33   0   100G  0 part
+```
 
 Paso 3:
 
 Ahora queremos añadir el nuevo dispositivo de bloque a nuestro grupo de volumenes. Vamos a mostrar el estado actual:
 
+```
 pvdisplay 
   --- Physical volume ---
   PV Name               /dev/vda5
@@ -69,6 +72,7 @@ pvdisplay
   Free PE               0
   Allocated PE          25538
   PV UUID               3rIpft-Hu1d-0Tl0-niKA-vPWW-OrY9-QxJBBw
+```
 
 Tenemos un dispositivo físico con nombre /dev/vda5 que pertenece al grupo de volumenes "dappnode-vg".
 
@@ -84,8 +88,7 @@ vgextend dappnode-vg /dev/vdc1
 
 Mostramos el estado:
 
-pvdisplay
-
+```
 pvdisplay 
   --- Physical volume ---
   PV Name               /dev/vda5
@@ -108,7 +111,7 @@ pvdisplay
   Free PE               0
   Allocated PE          25599
   PV UUID               WajnVa-1CWp-HJWF-0ghS-vwx4-cm0g-IPby0Q
-
+```
 
 Paso 4:
 
@@ -128,12 +131,13 @@ resize2fs /dev/dappnode-vg/root
 
 Si mostramos ahora nuestro espacio disponible veremos que la partición raiz ha aumentado:
 
+```
 df -h
 S.ficheros                    Tamaño Usados  Disp Uso% Montado en
 udev                            9,8G      0  9,8G   0% /dev
 tmpfs                           2,0G    18M  2,0G   1% /run
 /dev/mapper/dappnode--vg-root   177G    72G   98G  43% /
-
+```
 
 
 
