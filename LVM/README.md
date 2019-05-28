@@ -4,14 +4,21 @@ Ampliar el espacio de disco de nuestras máquinas virtuales.
 
 Paso 1:
 
-Añadimos la unidad en nuestro sistema. Si usamos KVM Libvirt pues abrimos nuestro Virt-Manager, abrimos nuestra máquina virtual, pulsamos añadir hardware, Almacenamiento, seleccionamos almacenaje personalizado, elegimos nuestro pool (directorio) de almacenamiento y creamos un nuevo qcow2 con el tamaño deseado.
+Añadimos la unidad en nuestro sistema. Si usamos KVM Libvirt abrimos nuestro Virt-Manager, abrimos o arrancamos nuestra máquina virtual, pulsamos añadir hardware (*add hardware*), 
+![alt text](../images/addhardware.jpg?raw=true "Añadir hardware a la máquina virtual")
+
+nos quedamos en la primera opción, almacenamiento (*storage*), seleccionamos almacenamiento personalizado o *custom storage*,
+![alt text](../images/customstorage.jpg?raw=true "Añadir hardware a la máquina virtual")
+
+elegimos nuestro *pool* (directorio) de almacenamiento y creamos un nuevo qcow2 con el tamaño deseado.
+![alt text](../images/createpool.jpg?raw=true "Añadir hardware a la máquina virtual")
 
 Paso 2:
 
 Entramos en nuestra máquina virtual. Si ejecutamos el comando:
-
+```
 lsblk
-
+```
 veremos algo de este estilo:
 ```
 NAME                    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -32,9 +39,9 @@ En este caso el nuevo dispositivo de bloques aparece nombrado como "vdc" y tiene
 Para poder añadirlo a nuestro sistema de ficheros primero tendremos que crear una partición y darle formato. En nuestro caso el formato elegido es ext4
 
 Lo anterior lo hacemos con fdisk.
-
+```
 fdisk /dev/vdc
-
+```
 Pulsamos "n" para crear una nueva partición. Aceptamos las opciones por defecto.
 Pulsamos "w" para guardar los cambios y salir.
 
@@ -77,15 +84,15 @@ pvdisplay
 Tenemos un dispositivo físico con nombre /dev/vda5 que pertenece al grupo de volumenes "dappnode-vg".
 
 Vamos a añadir un nuevo dispositivo físico para después añadirlo al grupo de volumenes:
-
+```
 pvcreate /dev/vdc1
   Physical volume "/dev/vdc1" successfully created
-
+```
 Y acto seguido lo añadimos al grupo de volumenes:
-
+```
 vgextend dappnode-vg /dev/vdc1
   Volume group "dappnode-vg" successfully extended
-
+```
 Mostramos el estado:
 
 ```
@@ -116,19 +123,19 @@ pvdisplay
 Paso 4:
 
 Extendemos el volumen lógico:
-
+```
 lvextend -l 100%FREE /dev/dappnode-vg/root
   Rounding up size to full physical extent 100.00 GiB
   Extending logical volume storage to 100.00 GiB
   Logical volume storage successfully resized
-
+```
 
 Paso 5:
 
 Por último redimensionamos el sistema de archivos para que nuestro Linux sea consciente de que ahora tiene más espacio en la partición raíz.
-
+```
 resize2fs /dev/dappnode-vg/root
-
+```
 Si mostramos ahora nuestro espacio disponible veremos que la partición raiz ha aumentado:
 
 ```
