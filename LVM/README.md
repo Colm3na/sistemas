@@ -86,8 +86,11 @@ pvcreate /dev/vdc1
 
 Y acto seguido lo añadimos al grupo de volumenes:
 
+```
 vgextend dappnode-vg /dev/vdc1
-  Volume group "dappnode-vg" successfully extended
+```
+
+ > Volume group "dappnode-vg" successfully extended
 
 Mostramos el estado:
 
