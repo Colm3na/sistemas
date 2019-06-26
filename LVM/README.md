@@ -136,7 +136,9 @@ Paso 5:
 
 Por último redimensionamos el sistema de archivos para que nuestro Linux sea consciente de que ahora tiene más espacio en la partición raíz.
 
+```
 resize2fs /dev/dappnode-vg/root
+```
 
 Si mostramos ahora nuestro espacio disponible veremos que la partición raiz ha aumentado:
 
