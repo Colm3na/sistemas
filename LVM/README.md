@@ -78,8 +78,11 @@ Tenemos un dispositivo físico con nombre /dev/vda5 que pertenece al grupo de vo
 
 Vamos a añadir un nuevo dispositivo físico para después añadirlo al grupo de volumenes:
 
+```
 pvcreate /dev/vdc1
-  Physical volume "/dev/vdc1" successfully created
+```
+
+> Physical volume "/dev/vdc1" successfully created
 
 Y acto seguido lo añadimos al grupo de volumenes:
 
