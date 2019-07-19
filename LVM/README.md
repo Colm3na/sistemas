@@ -128,9 +128,8 @@ Extendemos el volumen lógico:
 
 ```
 lvextend -l 100%FREE /dev/dappnode-vg/root
-```
 
-> Rounding up size to full physical extent 100.00 GiB
+Rounding up size to full physical extent 100.00 GiB
   Extending logical volume storage to 100.00 GiB
   Logical volume storage successfully resized
 ```
