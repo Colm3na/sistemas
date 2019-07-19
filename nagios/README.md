@@ -27,6 +27,7 @@ Puedes ver la lista de dispositivos de disco con el comando lsblk
 command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/vda1
 command[check_peers]=/usr/lib/nagios/plugins/check_peers
 command[check_load]=/usr/lib/nagios/plugins/check_load -r -w .70,.70,.70 -c .90,.80,.70
+command[check_mem]=/usr/lib/nagios/plugins/check_mem -w 80 -c 90
 ```
 
 ## Subimos nuestros scripts de checkeos
