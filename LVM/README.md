@@ -78,13 +78,19 @@ Tenemos un dispositivo físico con nombre /dev/vda5 que pertenece al grupo de vo
 
 Vamos a añadir un nuevo dispositivo físico para después añadirlo al grupo de volumenes:
 
+```
 pvcreate /dev/vdc1
-  Physical volume "/dev/vdc1" successfully created
+```
+
+> Physical volume "/dev/vdc1" successfully created
 
 Y acto seguido lo añadimos al grupo de volumenes:
 
+```
 vgextend dappnode-vg /dev/vdc1
-  Volume group "dappnode-vg" successfully extended
+```
+
+ > Volume group "dappnode-vg" successfully extended
 
 Mostramos el estado:
 
@@ -117,8 +123,11 @@ Paso 4:
 
 Extendemos el volumen lógico:
 
+```
 lvextend -l 100%FREE /dev/dappnode-vg/root
-  Rounding up size to full physical extent 100.00 GiB
+```
+
+> Rounding up size to full physical extent 100.00 GiB
   Extending logical volume storage to 100.00 GiB
   Logical volume storage successfully resized
 
@@ -127,7 +136,9 @@ Paso 5:
 
 Por último redimensionamos el sistema de archivos para que nuestro Linux sea consciente de que ahora tiene más espacio en la partición raíz.
 
+```
 resize2fs /dev/dappnode-vg/root
+```
 
 Si mostramos ahora nuestro espacio disponible veremos que la partición raiz ha aumentado:
 
