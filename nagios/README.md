@@ -23,9 +23,11 @@ vim /etc/nagios/nrpe_local.cfg
 Ojo, en el primer chequeo que viene ahora hay que modificar /dev/vda1 por el dispositivo de tu servidor.
 Puedes ver la lista de dispositivos de disco con el comando lsblk 
 
+```
 command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/vda1
 command[check_peers]=/usr/lib/nagios/plugins/check_peers
 command[check_load]=/usr/lib/nagios/plugins/check_load -r -w .70,.70,.70 -c .90,.80,.70
+```
 
 ## Subimos nuestros scripts de checkeos
 
