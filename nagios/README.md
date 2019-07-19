@@ -12,7 +12,7 @@ allowed_hosts=127.0.0.1
 
 ### Y la cambiamos por:
 
-allowed_hosts=127.0.0.1,92.222.115.109
+allowed_hosts=127.0.0.1,[IP del NAGIOS]
 
 ## Añadimos definiciones de chequeos personalizados
 
