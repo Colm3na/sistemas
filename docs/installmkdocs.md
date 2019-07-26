@@ -6,7 +6,19 @@ En [su página oficial](https://www.mkdocs.org/#installation) podéis encontrar 
 `sudo apt install -y mkdocs` 
 
 ## Instalación con [PIP](https://pypi.org/project/pip/).
-`pip install mkdocs` 
+`pip install mkdocs`
+
+#### Apunte:
+
+La versión de pip debe ser la más actual, la 19.2.1. Si no `pip install mkdocs` no funcionará correctamente.
+Cuando instalamos pip en Ubuntu 18.04+ hay que tener en cuenta que lo ideal es seguir la guía oficial, https://pip.pypa.io/en/stable/installing/, descargando `get-pip.py` y luego con el comando `python get-pip.py --user`.
+
+Instalando pip con `sudo apt install python-pip` podemos tener problemas a la hora de hacer upgrade (`sudo pip install pip --upgrade`).
+
+Comprobamos la instalación con `pip --version`. Si no encuentra el PATH lo más probable es que el ejecutable de pip se encuentre en `$HOME/.local/bin`. Lo añadimos a nuestros PATHs en `~/.profile` agregando la línea: `export PATH=$PATH:/$HOME/.local/bin`. Guardamos el archivo y ejecutamos `source ~/.profile`.
+Comprobamos la instalación con `pip --version`.
+
+Ahora ya deberíamos tener la versión más actual de pip instalada. 
 
 ## Comprobamos la versión instalada:
 `mkdocs --version`
