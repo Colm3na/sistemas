@@ -1,0 +1,8 @@
+site_name: Sistemas
+theme:
+  name: 'rtd-dropdown'
+highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+        - bash
