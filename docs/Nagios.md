@@ -30,7 +30,7 @@ Puedes ver la lista de dispositivos de disco con el comando `lsblk`
 
 `command[check_mem]=/usr/lib/nagios/plugins/check_mem -w 80 -c 90`
 
-## Subimos nuestros scripts de checkeos
+## Subimos nuestros scripts de checkeos, puedes encontrarlos en la carpeta `scriptsNagios`
 `scp check_root [user]@[ip]:/tmp`
 
 `scp check_peers [user]@[ip]:/tmp`
