@@ -27,4 +27,3 @@ echo "UNKNOWN - $connected_peers peers connected |'peers'=$connected_peers"
 exit 3
 ;;
 esac
-
