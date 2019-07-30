@@ -6,7 +6,7 @@ En [su página oficial](https://www.mkdocs.org/#installation) podéis encontrar 
 `sudo apt install -y mkdocs` 
 
 ## Instalación con [PIP](https://pypi.org/project/pip/).
-`pip install mkdocs`
+`pip install mkdocs --user`
 
 #### Apunte:
 
@@ -26,7 +26,10 @@ Ahora ya deberíamos tener la versión más actual de pip instalada.
 >mkdocs, version 1.0.4
 
 ## En este caso usamos la versión ReadTheDocs [Dropdown](https://github.com/cjsheets/mkdocs-rtd-dropdown), la instalamos:
-`pip install mkdocs-rtd-dropdown`
+`pip install mkdocs-rtd-dropdown --user`
+
+## Instalamos dependencias:
+`pip install md-tooltips --user`
 
 ## Clonamos el repositorio:
 `git clone https://github.com/Colm3na/sistemas.git`
