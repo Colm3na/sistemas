@@ -1,4 +1,4 @@
-# Preparación del equipo para la documentación.
+# Preparación del equipo para ver la documentación.
 
 En [su página oficial](https://www.mkdocs.org/#installation) podéis encontrar más información acerca de la instalación en varias plataformas, en este caso lo explicaremos para [Ubuntu 18.04LTS](https://ubuntu.com).
 
